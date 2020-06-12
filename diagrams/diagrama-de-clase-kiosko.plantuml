@@ -69,47 +69,4 @@ class SubscripcionAnual {
         precio( mes Mes, anio Anio) : Double        
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/'
- ' class Producto {
- '         - denominacion String
- '         - precio Double
- ' 
- '         Producto(denominacion String, precio Double) 
- '         costo() : Double
- ' }
- ' 
- ' Producto <|-- Revista
- ' Producto <|-- Periodico
- ' Producto <|-- ArticuloLibreria
- ' ArticuloLibreria : costo() Double
- ' 
- ' class CtaCte {
- '         - dni String
- ' }
- ' 
- ' CtaCte *- "0..*" Producto
- '/
-
 @enduml
