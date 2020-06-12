@@ -1,0 +1,9 @@
+@startuml
+
+Kiosco -> Kiosco : deudaClientes
+loop [clientes] 
+        Kiosco -> Cliente : deuda
+        Cliente -> Producto: costo( mes Fecha)        
+
+end
+@enduml

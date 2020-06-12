@@ -1,0 +1,4 @@
+@startuml
+
+Testcase -> Cliente : compra( articulo ArticuloLibreria)
+@enduml

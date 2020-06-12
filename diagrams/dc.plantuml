@@ -1,0 +1,115 @@
+@startuml
+
+/'
+ ' Kiosko - late
+ ' Producto - late 
+ ' ProductoS - ?
+ ' Cliente - late 
+ ' Subscripcion - ?
+ ' LibroS - ? 
+ ' Revista - nop
+ ' Periodico- nop
+ ' CtaCte - nop
+ ' Descuento - ?
+ ' ClienteCon20 - ?
+ '/
+
+class Kiosko {
+
+        dedudaTotal(mes Mes, anio Anio) : Double
+}
+
+Kiosko o-- "0.*" CtaCte
+
+class Producto {
+        - denominacion String
+        - precioUnitario Double
+        
+        precioPorCantidad( cantidad Integer) : Double
+}
+
+class CtaCte {
+
+        deuda(mes Mes, anio Anio) : Double
+}
+
+CtaCte *-- "*" Transaccion
+CtaCte *-right- "*" SubscripcionAnual
+
+class Transaccion {
+
+        deuda(mes Mes, anio Anio) : Double
+}
+
+Transaccion o-right- "1" Producto
+
+class Transaccion {
+        - fecha Fecha
+        - cantidad Integer
+}
+
+
+
+Producto <|-- ArticuloLibreria
+class ArticuloLibreria {
+        - iva Double
+        
+        precioPorCantidad( cantidad Integer) : Double
+        precio( mes Mes, anio Anio) : Double        
+}
+
+
+SubscripcionAnual o--  Producto: es para
+
+class SubscripcionAnual {
+        - desde Fecha
+        - hasta Fecha
+        - dto Double
+
+        precio( mes Mes, anio Anio) : Double        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/'
+ ' class Producto {
+ '         - denominacion String
+ '         - precio Double
+ ' 
+ '         Producto(denominacion String, precio Double) 
+ '         costo() : Double
+ ' }
+ ' 
+ ' Producto <|-- Revista
+ ' Producto <|-- Periodico
+ ' Producto <|-- ArticuloLibreria
+ ' ArticuloLibreria : costo() Double
+ ' 
+ ' class CtaCte {
+ '         - dni String
+ ' }
+ ' 
+ ' CtaCte *- "0..*" Producto
+ '/
+
+@enduml
